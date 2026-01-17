@@ -8,7 +8,7 @@ const AllSec = () => {
         {name:"Popular Songs and Artists",type:"Square",genre:"Popular"},
         {name:"New Songs",type:"Square",genre:"Neww"}];
   return (
-    <div className='flex flex-col  gap-3'>
+    <div className='flex flex-col gap-1'>
       {secarr.map((elem) => {
         return <div className='flex h-[350px] flex-col gap-3'>
             <div className="top flex justify-between">
