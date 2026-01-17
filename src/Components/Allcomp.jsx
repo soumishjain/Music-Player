@@ -1,6 +1,7 @@
 import React from 'react'
 import Nav from './Nav'
 import Main from './Main'
+import Bottombox from './Bottombox'
 
 const Allcomp = () => {
   return (

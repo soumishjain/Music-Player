@@ -9,22 +9,26 @@ import React, { createContext, useEffect, useRef, useState } from 'react'
         const playsong = (song) => {
             if(!song?.audio) return;
             if(currentsong?.audio === song.audio){
-                if(audioref.current.paused){
-                    audioref.current.play();
-                    setisplaying(true)
+                setisplaying(prev => !prev)
                 }else{
-                    audioref.current.pause();
-                    setisplaying(false)
+                    audioref.current.src = song.audio;
+                    audioref.current.currentTime = 0;
+                    setcurrentsong(song)
+                    setisplaying(true)
                 }
             }
-            else{
-                audioref.current.src = song.audio
-                audioref.current.currentTime = 0;
-                audioref.current.play();
-                setcurrentsong(song)
+            useEffect(() => {
+                const audio = audioref.current
+                if(!audio || !audio.src) return;
+                audio.play().catch(() => {});
                 setisplaying(true)
-            }
-        }
+            },[currentsong])
+        useEffect(() => {
+            const audio = audioref.current;
+            if(!audio || !audio.src) return;
+            if(isplaying) audio.play().catch(() => {});
+            else audio.pause();
+        },[isplaying])
 
         useEffect(() => {
             const audio = audioref.current
@@ -48,15 +52,8 @@ import React, { createContext, useEffect, useRef, useState } from 'react'
             setcurrentTime(time)
         }
         const toggleplaypause = () => {
-            if(!audioref.current || !currentsong) return;
-            if(audioref.current.paused){
-                audioref.current.play()
-                setisplaying(true)
-            }
-            else{
-                audioref.current.pause();
-                setisplaying(false)
-            }
+            if(!audioref.current || !audioref.current.src) return;
+            setisplaying(prev => !prev)
         }
       return (
     <div>

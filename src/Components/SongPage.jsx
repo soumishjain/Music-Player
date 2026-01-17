@@ -9,9 +9,8 @@ const SongPage = () => {
         return <h1 className='text-white'>No song is Playing</h1>
     }
   return (
-    <div onClick={toggleplaypause}   className='h-screen w-screen text-white bg-black p-10 gap-5 flex justify-center items-center flex-col'>
+    <div className='h-screen w-screen text-white bg-black p-10 gap-5 flex justify-center items-center flex-col'>
       <img src={currentsong.poster} className='w-[60%] h-[80%] rounded-xl' alt="" />
-      <Bottombox />
     </div>
   )
 }

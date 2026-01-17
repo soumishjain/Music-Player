@@ -1,11 +1,13 @@
 import React from 'react'
+import { useNavigate } from 'react-router-dom'
 
 const Nav = () => {
+  const navigate = useNavigate()
   return (
     <div className='h-[5%] w-[100%] p-2 mb-3 flex justify-between items-center'>
       <div className="left w-[50%] flex items-center gap-5 ">
         <i className="ri-spotify-fill text-4xl text-white"></i>
-        <i className="ri-home-5-fill text-3xl p-1 px-2 bg-white/20 rounded-[50%] text-white"></i>
+        <i onClick={() => navigate('/')} className="ri-home-5-fill text-3xl p-1 px-2 bg-white/20 rounded-[50%] text-white"></i>
         <div className='flex rounded-full w-[60%] gap-4 bg-white/20 items-center py-1 px-3'>
             <i className="ri-search-line text-white text-3xl"></i>
             <input className='w-[100%] outline-0 border-0 text-white placeholder-white' type="text" placeholder='What do you want to play?'/>
