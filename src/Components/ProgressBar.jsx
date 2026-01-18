@@ -15,10 +15,9 @@ const ProgressBar = () => {
         <span>{formatTime(currentTime)}</span>
         <input type="range" min='0' max={duration || 0} value={currentTime}
         onChange={(e) => seek(Number(e.target.value))}
-        className='w-full accent-emerald-500'
+        className='w-full accent-white'
         />
         <span>{formatTime(duration)}</span>
-      
     </div>
   )
 }

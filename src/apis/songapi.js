@@ -28,7 +28,7 @@ export const getSongs = async ({
 }
 
 export const getArtistsfromsongs = async() => {
-    const songs = await getSongs({term:"top",limit:500,country:"IN"})
+    const songs = await getSongs({term:"top",limit:200,country:"IN"})
     const map = new Map();
     songs.forEach(song => {
         if(!map.has(song.artistId)){

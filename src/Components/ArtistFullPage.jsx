@@ -6,7 +6,7 @@ import Bottombox from './Bottombox'
 
 const ArtistFullPage = () => {
   return (
-    <div className='h-[90%] w-screen p-3 bg-black'>
+    <div className='h-[85%] w-screen p-3 bg-black'>
         <Nav />
         <div className=' h-[100%] gap-10 flex'>
         <ArtistLeftBox />

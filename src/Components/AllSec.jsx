@@ -1,12 +1,15 @@
 import React from 'react'
 import SquareCard from './SquareCard';
 import CircleCard from './CircleCard';
+import { generatePath } from 'react-router-dom';
 
 const AllSec = () => {
     const secarr = [{name:"Trending Songs", type:"Square",genre:"Trending"},
         {name:"Artists",type:"Circular",genre:"Artists"},
         {name:"Popular Songs and Artists",type:"Square",genre:"Popular"},
-        {name:"New Songs",type:"Square",genre:"Neww"}];
+        {name:"New Songs",type:"Square",genre:"Neww"},
+        {name:"Global Hits",type: "Square",genre:""}
+      ];
   return (
     <div className='flex flex-col gap-1'>
       {secarr.map((elem) => {

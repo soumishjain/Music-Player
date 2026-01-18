@@ -30,7 +30,7 @@ useEffect(() => {
     <div className='flex overflow-x-auto gap-2  no-scrollbar'>
       {curr.map((e) => {
         return <div onClick={() => {
-            playsong(e)
+            playsong(e,curr)
             nav(`/song/${encodeURIComponent(e.name)}`)
         }} className='flex group shrink-0 h-full hover:bg-white/30 p-2 transition-all duration-300 ease rounded-xl cursor-pointer flex-col'>
             <div className=' w-[170px] transition-all duration-300 ease relative rounded-xl '>

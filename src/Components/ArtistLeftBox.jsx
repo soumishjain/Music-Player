@@ -13,13 +13,13 @@ const ArtistLeftBox = () => {
     },[])
     const nav = useNavigate()
   return (
-    <div className='h-[100%] w-[30%] border-2 py-2 border-white'>
+    <div className='h-[100%] w-[30%] bg-white/10 rounded-xl py-2 '>
       <h1 className='text-white text-center text-3xl font-bold'>Other Artists</h1>
       <div className='h-[90%] overflow-auto mt-3 no-scrollbar'>
         {curr.map((e) => {
-        return <div onClick={() => nav(`/artist/${encodeURIComponent(e.artistname)}`)} className='border-t-2 flex gap-3 items-center text-white p-2'>
-            <img className='rounded-full w-13' src={e.photo} alt="" />
-            <h1 className='text-2xl'>{e.artistname}</h1>
+        return <div onClick={() => nav(`/artist/${encodeURIComponent(e.artistname)}`)} className='hover:bg-white/10 border-white/30 flex gap-3 items-center text-white p-2'>
+            <img className='rounded-xl w-10' src={e.photo} alt="" />
+            <h1 className='text-xl'>{e.artistname}</h1>
         </div>
       })}   
       </div>

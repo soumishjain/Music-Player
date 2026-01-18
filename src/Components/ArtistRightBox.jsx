@@ -32,20 +32,19 @@ const ArtistRightBox = () => {
         fetchsongs()
     },[artist])
     const {playsong} = useContext(PlayerContext)
-    const nav = useNavigate()
   return (
     <div className='w-[60%] h-[100%] bg-white/10 rounded-2xl overflow-auto no-scrollbar'>
-        <div className="top overflow-auto no-scrollbar border-b-2 border-white flex flex-col w-[100%] p-10 items-center h-[40%]">
-            <img className='h-[90%] w-[23%] rounded-full' src={curr.photo} alt="" />
+        <div className="top overflow-auto no-scrollbar border-white/30 flex flex-col w-[100%] p-10 items-center h-[40%]">
+            <img className='h-[90%] w-[21%] rounded-full' src={curr.photo} alt="" />
             <h1 className='text-white font-bold text-4xl mt-2'>{curr.artistname}</h1>
         </div>
         <div className='h-[60%]'>
             {songlist.map((e) => {
                 return <div onClick={() => {
-                    playsong(e);                    
-                }} className='border-t-2 flex gap-3 items-center text-white p-2'>
-            <img className='rounded-full w-13' src={e.poster} alt="" />
-            <h1 className='text-2xl'>{e.name}</h1>
+                    playsong(e,songlist);                    
+                }} className=' border-white/30 hover:bg-white/10 flex gap-3 items-center text-white p-2'>
+            <img className='rounded-xl w-10' src={e.poster} alt="" />
+            <h1 className='text-xl'>{e.name}</h1>
         </div>
             })}
         </div>
