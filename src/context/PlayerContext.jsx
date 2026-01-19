@@ -9,6 +9,12 @@ import React, { createContext, useEffect, useRef, useState } from 'react'
         const [queue,setqueue] = useState([])
         const [curridx,setcurridx] = useState(-1)
 
+        const toggleplaypause = () => {
+            if(!audioref.current || !audioref.current.src) return;
+            setisplaying(prev => !prev)
+        }
+
+        // function to play song and if list exist set list
         const playsong = (song,songlist = []) => {
             if(!song?.audio) return;
             if(songlist.length > 0){
@@ -26,6 +32,7 @@ import React, { createContext, useEffect, useRef, useState } from 'react'
                 }
             }
 
+            // use effect to 
             useEffect(() => {
                 const handlekeydown = (e) => {
                     if(e.target.tagName === 'INPUT') return;
@@ -46,7 +53,7 @@ import React, { createContext, useEffect, useRef, useState } from 'react'
                 }
                 window.addEventListener("keydown",handlekeydown)
                 return () => window.removeEventListener("keydown",handlekeydown) 
-            },[queue,curridx,isplaying])
+            },[toggleplaypause])
 
             const playnext = () => {
                 if(queue.length === 0) return;
@@ -116,14 +123,12 @@ import React, { createContext, useEffect, useRef, useState } from 'react'
             audio.addEventListener("ended",handleended)
             return () => audio.removeEventListener("ended",handleended);
         },[playnext])
+        
         const seek = (time) => {
             audioref.current.currentTime = time;
             setcurrentTime(time)
         }
-        const toggleplaypause = () => {
-            if(!audioref.current || !audioref.current.src) return;
-            setisplaying(prev => !prev)
-        }
+        
       return (
     <div>
       <PlayerContext.Provider value={{

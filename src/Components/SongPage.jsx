@@ -4,7 +4,7 @@ import { PlayerContext } from '../context/PlayerContext'
 import Bottombox from './Bottombox';
 
 const SongPage = () => {
-    const {currentsong,ispalying,toggleplaypause} = useContext(PlayerContext);
+    const {currentsong} = useContext(PlayerContext);
     if(!currentsong){
         return <h1 className='text-white'>No song is Playing</h1>
     }

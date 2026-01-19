@@ -7,7 +7,6 @@ const CircleCard = (elem) => {
   useEffect(() => {
     const fetchArtists = async () => {
       const artists = await getArtistsfromsongs();
-      console.log(artists)
       setcurr(artists)
     }
     fetchArtists()
